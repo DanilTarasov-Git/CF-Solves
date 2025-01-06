@@ -1,0 +1,16 @@
+n1, n2, k1, k2 = list(map(int,input().split()))
+dp = [[[[-1 for i in range (12)] for i in range (12)] for i in range(102)] for i in range (102)]
+
+def jul (a, b, c, d):
+    if a == 0 and b == 0:
+        return 1
+    elif dp[a][b][c][d] == -1:
+        summa = 0
+        if a > 0 and c > 0:
+            summa += jul(a-1, b, c-1, k2) % 10**8
+        if b > 0 and d > 0:
+            summa += jul(a, b-1, k1, d-1) % 10**8
+        dp[a][b][c][d] = summa % 10**8
+    return dp[a][b][c][d]
+
+print (jul(n1, n2, k1, k2) % 10**8)

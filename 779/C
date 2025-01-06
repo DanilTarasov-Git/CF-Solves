@@ -1,0 +1,17 @@
+n, k = map(int, input().split())
+v = [[0] * 3 for i in range(n)]
+
+for i in range(2):
+    prices = list(map(int, input().split()))
+    for j in range(n):
+        v[j][i] = prices[j]
+for i in range(n):
+    v[i][2] = v[i][0] - v[i][1]
+v.sort(key=lambda x: x[2])
+cnt = 0
+for i in range(n):
+    if i < k or v[i][2] < 0:
+        cnt += v[i][0]
+    else:
+        cnt += v[i][1]
+print(cnt)

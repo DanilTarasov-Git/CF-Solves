@@ -1,0 +1,9 @@
+t = int(input())
+n_list = []
+res = 0
+for i in range(t):
+    n_list.append(list(map(int, input().split())))
+for i in n_list:
+    if sum(i) >= 2:
+        res += 1
+print(res)

@@ -1,0 +1,9 @@
+n = int(input())
+while n > 0:
+    print(n, end=' ')
+    if n == 1:
+        break
+    for i in range(n - 1, 0, -1):
+        if n % i == 0:
+            n = i
+            break

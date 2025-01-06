@@ -1,0 +1,10 @@
+from collections import Counter
+n = int(input())
+t = []
+for i in range (n):
+    t.append(input())
+
+ans = Counter(t)
+
+
+print(max(ans.values()))

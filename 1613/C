@@ -1,0 +1,15 @@
+t = int(input())
+for i in range(t):
+    n, h = map(int, input().split())
+    a = list(map(int, input().split()))
+    l, r = 1, 10 ** 18
+    while l <= r:
+        m = (l + r) // 2
+        damage = m
+        for j in range(n - 1):
+            damage += min(m, a[j + 1] - a[j])
+        if damage < h:
+            l = m + 1
+        else:
+            r = m - 1
+    print(r + 1)

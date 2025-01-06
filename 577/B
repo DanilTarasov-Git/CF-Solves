@@ -1,0 +1,19 @@
+n, m = map(int, input().split())
+n_list = list(map(int, input().split()))
+dp = [0] * m
+dp[0] = 1
+sum = 0
+ 
+for num in n_list:
+    sum += num
+    sum %= m
+    if dp[sum] == 1:
+        print("YES")
+        break
+    ndp = dp[:]
+    for i in range(m):
+        if dp[i] == 1:
+            ndp[(i + num) % m] = 1
+    dp = ndp
+else:
+    print("NO")

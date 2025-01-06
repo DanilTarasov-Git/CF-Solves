@@ -1,0 +1,20 @@
+n, m = map(int, input().split())
+p = list(map(int, input().split()))
+pos_m = p.index(m)
+crnt = 0
+cnt = {0: 1}
+res = 0
+for i in range(n):
+    if p[i] > m:
+        crnt += 1
+    elif p[i] < m:
+        crnt -= 1
+    if i >= pos_m:
+        res += cnt.get(crnt, 0)
+        res += cnt.get(crnt - 1, 0)
+    if i < pos_m:
+        if crnt in cnt:
+            cnt[crnt] += 1
+        else:
+            cnt[crnt] = 1
+print(res)
